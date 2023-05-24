@@ -47,17 +47,23 @@ setInterval(() => {
     });
 }, 5000);
 
-var btn = $('#totop');
+var totop = $('#totop');
+var more = $('#scroll-for-more');
 
 $(window).scroll(() => {
     if ($(window).scrollTop() > 300) {
-        btn.addClass('show');
+        totop.addClass('show');
     } else {
-        btn.removeClass('show');
+        totop.removeClass('show');
+    }
+    if ($(window).scrollTop() > 0) {
+        more.addClass('hide');
+    } else {
+        more.removeClass('hide');
     }
 });
 
-btn.click((e) => {
+totop.click((e) => {
     e.preventDefault();
     $('html, body').stop(true, true).animate({scrollTop:0}, 100);
 });
