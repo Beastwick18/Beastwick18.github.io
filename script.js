@@ -1,11 +1,16 @@
-$('.about-me-button').click(() => {
-    var element = document.getElementById('about-me');
-    element.scrollIntoView();
-});
-$('.projects-button').click(() => {
-    var element = document.getElementById('projects');
-    element.scrollIntoView();
-});
+// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+let vh = window.innerHeight * 0.01;
+// Then we set the value in the --vh custom property to the root of the document
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+// $('.about-me-button').click(() => {
+//     var element = document.getElementById('about-me');
+//     element.scrollIntoView();
+// });
+// $('.projects-button').click(() => {
+//     var element = document.getElementById('projects');
+//     element.scrollIntoView();
+// });
 
 // This is incredibly stupid, but it works
 var current = 0;
@@ -53,17 +58,19 @@ var more = $('#scroll-for-more');
 $(window).scroll(() => {
     if ($(window).scrollTop() > 300) {
         totop.addClass('show');
-    } else {
-        totop.removeClass('show');
-    }
-    if ($(window).scrollTop() > 0) {
         more.addClass('hide');
     } else {
+        totop.removeClass('show');
         more.removeClass('hide');
     }
 });
 
-totop.click((e) => {
-    e.preventDefault();
-    $('html, body').stop(true, true).animate({scrollTop:0}, 100);
+// totop.click((e) => {
+//     e.preventDefault();
+// });
+
+window.addEventListener('resize', () => {
+    // We execute the same script as before
+    vh = Math.max(window.innerHeight * 0.01, vh);
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
 });

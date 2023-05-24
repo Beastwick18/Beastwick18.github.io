@@ -32,21 +32,21 @@
         text-align: center;
     }
     
-    #scroll-for-more {
-        position: fixed;
-        bottom: 0;
-        display: block;
-        opacity: .7;
-        animation: bounce-in 1.5s ease infinite;
-        text-align: center;
-        transition: all .5s;
-        width: 100%;
-        z-index: 50;
-    }
+    /* #scroll-for-more { */
+    /*     position: fixed; */
+    /*     bottom: 0; */
+    /*     display: block; */
+    /*     opacity: .7; */
+    /*     animation: bounce-in 1.5s ease infinite; */
+    /*     text-align: center; */
+    /*     transition: all .5s; */
+    /*     width: 100%; */
+    /*     z-index: 50; */
+    /* } */
     
-    #scroll-for-more.hide {
-        opacity: 0;
-    }
+    /* #scroll-for-more.hide { */
+    /*     opacity: 0; */
+    /* } */
     
     #totop {
         right: 50%;
@@ -75,9 +75,9 @@
 }
 
 @media only screen and (min-width: 600px) {
-    #scroll-for-more {
-        display: none;
-    }
+    /* #scroll-for-more { */
+    /*     display: none; */
+    /* } */
     
     #totop {
         right: 75px;
@@ -95,6 +95,22 @@
         width: 32px;
         height: 32px;
     }
+}
+
+#scroll-for-more {
+    position: fixed;
+    bottom: 0;
+    display: block;
+    opacity: .7;
+    animation: bounce-in 1.5s ease infinite;
+    text-align: center;
+    transition: all .5s;
+    width: 100%;
+    z-index: 50;
+}
+
+#scroll-for-more.hide {
+    opacity: 0;
 }
 
 #totop {
@@ -145,8 +161,9 @@ canvas{
     cursor: pointer;
 }
 .background {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+    height: calc(var(--vh, 1vh) * 100);
     background-image: var(--url);
     background-position: center !important;
     background-size: auto 100% !important;
@@ -188,16 +205,21 @@ canvas{
     top: 100%;
     background-color: black;
     width: 100%;
-    height: 100%;
+    height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+    height: calc(var(--vh, 1vh) * 100);
+    transition: all .5s;
 }
 
 #about-me {
-    top: 100%;
+    /* top: 100%; */
+    top: 100vh; /* Fallback for browsers that do not support Custom Properties */
+    top: calc(var(--vh, 1vh) * 100);
     background-color: #000e00;
 }
 
 #projects {
-    top: 200%;
+    top: 200vh; /* Fallback for browsers that do not support Custom Properties */
+    top: calc(var(--vh, 1vh) * 200);
     background-color: blue;
 }
 .pfp img {
