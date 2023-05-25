@@ -3,20 +3,11 @@ let vh = window.innerHeight * 0.01;
 // Then we set the value in the --vh custom property to the root of the document
 document.documentElement.style.setProperty('--vh', `${vh}px`);
 
-// $('.about-me-button').click(() => {
-//     var element = document.getElementById('about-me');
-//     element.scrollIntoView();
-// });
-// $('.projects-button').click(() => {
-//     var element = document.getElementById('projects');
-//     element.scrollIntoView();
-// });
-
 // This is incredibly stupid, but it works
 var current = 0;
 var max_elem = document.querySelectorAll('.background').length;
-var mode = 0;
-var modes = [ 'animate-left', 'animate-right', 'animate-up', 'animate-down' ];
+var direction = 0;
+var animations = [ 'animate-left', 'animate-right', 'animate-up', 'animate-down' ];
 setInterval(() => {
     var items = document.querySelectorAll('.background.ready');
     console.log(current);
@@ -29,11 +20,11 @@ setInterval(() => {
                 });
             }
             $(elem).removeClass('ready');
-            $(elem).addClass(modes[mode]);
-            mode = (mode + 1) % 4;
+            $(elem).addClass(animations[direction]);
+            direction = (direction + 1) % 4;
             setTimeout(() => {
                 $(elem).addClass('behind');
-                modes.forEach((m) => {
+                animations.forEach((m) => {
                     $(elem).removeClass(m);
                 });
                 $(elem).addClass('ready');

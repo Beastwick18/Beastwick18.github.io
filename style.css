@@ -7,13 +7,13 @@
 }
 
 @media only screen and (max-width: 600px) {
-    .about-me-button, .projects-button {
+    .about-me-button, .projects-button, .github-button {
         display: none !important; 
     }
     
-    .github-button {
-        background-color: rgba(255, 255, 255, .07) !important;
-    }
+    /* .github-button { */
+    /*     background-color: rgba(128,128,128,.05) !important; */
+    /* } */
     
     .nav-items {
         padding-top: 10px !important;
@@ -50,6 +50,18 @@
     #totop > svg {
         width: 16px;
         height: 16px;
+    }
+    
+    .contacts {
+        padding: .25rem 2rem;
+        display: flex;
+        gap: .5rem;
+    }
+
+    .contacts > * {
+        color: white;
+        font-size: 2.5rem;
+        flex: 1;
     }
 }
 
@@ -94,6 +106,18 @@
         background-color: rgba(255, 255, 255, .85);
         cursor: pointer;
     }
+
+    .contacts {
+        padding-top: 5px;
+        display: flex;
+        gap: .5rem;
+    }
+
+    .contacts > * {
+        color: white;
+        font-size: 2.0rem;
+    }
+
 }
 
 
@@ -290,3 +314,4 @@ canvas{
     text-shadow: black 0px 0 6px;
     white-space: nowrap;
 }
+
