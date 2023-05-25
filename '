@@ -219,17 +219,6 @@ canvas{
     top: calc(var(--vh, 1vh) * 200);
     background-color: blue;
 }
-
-.wip {
-    position: absolute;
-    width: 100%;
-    padding: 2rem 0;
-    text-align: center;
-    top: 100%;
-    background-color: #050505;
-    font-size: 1.5rem;
-}
-
 .pfp img {
     width: 10em;
     border-radius: 100%;

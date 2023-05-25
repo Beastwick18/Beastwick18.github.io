@@ -16,6 +16,7 @@ document.documentElement.style.setProperty('--vh', `${vh}px`);
 var current = 0;
 var max_elem = document.querySelectorAll('.background').length;
 var mode = 0;
+var modes = [ 'animate-left', 'animate-right', 'animate-up', 'animate-down' ];
 setInterval(() => {
     var items = document.querySelectorAll('.background.ready');
     console.log(current);
@@ -24,27 +25,17 @@ setInterval(() => {
             // Reset all z index
             if(current == 0) {
                 items.forEach((elem) => {
-                    $(elem).css('z-index', '');
+                    $(elem).removeClass('behind');
                 });
             }
-            $(elem).css('transition', '');
             $(elem).removeClass('ready');
-            if(mode == 0)
-                $(elem).addClass('animate-left');
-            else if(mode == 1)
-                $(elem).addClass('animate-right');
-            else if(mode == 2)
-                $(elem).addClass('animate-up');
-            else if(mode == 3)
-                $(elem).addClass('animate-down');
+            $(elem).addClass(modes[mode]);
             mode = (mode + 1) % 4;
             setTimeout(() => {
-                $(elem).css('transition', 'all 0s');
-                $(elem).css('z-index', '-1');
-                $(elem).removeClass('animate-left');
-                $(elem).removeClass('animate-right');
-                $(elem).removeClass('animate-up');
-                $(elem).removeClass('animate-down');
+                $(elem).addClass('behind');
+                modes.forEach((m) => {
+                    $(elem).removeClass(m);
+                });
                 $(elem).addClass('ready');
                 current = (current + 1) % max_elem;
             }, 1000);
@@ -56,7 +47,7 @@ var totop = $('#totop');
 var more = $('#scroll-for-more');
 
 $(window).scroll(() => {
-    if ($(window).scrollTop() > 300) {
+    if ($(window).scrollTop() > 50) {
         totop.addClass('show');
         more.addClass('hide');
     } else {
