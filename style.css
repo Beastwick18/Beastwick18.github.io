@@ -88,6 +88,12 @@
         width: 100%; 
         left: 0; 
     }
+
+    #totop:hover {
+        color: black;
+        background-color: rgba(255, 255, 255, .85);
+        cursor: pointer;
+    }
 }
 
 
@@ -148,11 +154,6 @@ canvas{
 #totop.show {
     visibility: visible;
     opacity: 1;
-}
-#totop:hover {
-    color: black;
-    background-color: rgba(255, 255, 255, .85);
-    cursor: pointer;
 }
 .background {
     width: 100vw;
@@ -223,7 +224,7 @@ canvas{
 .wip {
     position: absolute;
     width: 100%;
-    padding: 2rem 0;
+    padding: 2rem 0 4.5rem 0;
     text-align: center;
     top: 100%;
     background-color: #050505;
